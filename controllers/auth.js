@@ -1,8 +1,12 @@
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const User = require('../models/user');
+const { isLoggedIn } = require('../authentication');
 
 exports.join = async (req, res, next) => {
+  if(isLoggedIn(req)) {
+    return res.redirect('/');
+  }
   const { email, nick, password } = req.body;
   try {
     const exUser = await User.findOne({ where: { email } });
@@ -23,6 +27,9 @@ exports.join = async (req, res, next) => {
 }
 
 exports.login = (req, res, next) => {
+  if(isLoggedIn(req)) {
+    return res.redirect('/');
+  }
   passport.authenticate('local', (authError, user, info) => {
     if (authError) {
       console.error(authError);
@@ -42,6 +49,9 @@ exports.login = (req, res, next) => {
 };
 
 exports.logout = (req, res) => {
+  if(!isLoggedIn(req)) {
+    return res.redirect('/');
+  }
   req.logout(() => {
     res.redirect('/');
   });

@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs');
 
 const { afterUploadImage, uploadPost } = require('../controllers/post');
-const { isLoggedIn } = require('../middlewares');
+const { isLoggedIn } = require('../authentication');
 
 const router = express.Router();
 
@@ -28,11 +28,11 @@ const upload = multer({
   limits: { fileSize: 5 * 1024 * 1024 },
 });
 
-// POST /post/img
-router.post('/img', isLoggedIn, upload.single('img'), afterUploadImage);
+// // POST /post/img
+// router.post('/img', isLoggedInUser, upload.single('img'), afterUploadImage);
 
-// POST /post
-const upload2 = multer();
-router.post('/', isLoggedIn, upload2.none(), uploadPost);
+// // POST /post
+// const upload2 = multer();
+// router.post('/', isLoggedInUser, upload2.none(), uploadPost);
 
 module.exports = router;
