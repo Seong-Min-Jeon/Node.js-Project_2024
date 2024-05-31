@@ -6,8 +6,8 @@ exports.isLoggedIn = (req) => {
   }
 };
 
-exports.isLoggedInStaff = (req) => {
-  if (req.isAuthenticated() && (req.user?.staff == 1)) {
+exports.isLoggedInStaff = (req, res) => {  
+  if (req.isAuthenticated() && (res.locals.user?.staff == 1)) {
     return true;
   } else {
     return false;

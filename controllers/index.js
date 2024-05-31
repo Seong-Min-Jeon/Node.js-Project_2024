@@ -1,16 +1,12 @@
-const { User, Post, Hashtag } = require('../models');
-
-exports.renderProfile = (req, res) => {
-  res.render('profile', { title: '내 정보 - NodeBird' });
-};
+const { User } = require('../models');
 
 exports.renderJoin = (req, res) => {
-  res.render('join', { title: '회원가입 - NodeBird' });
+  res.render('join');
 };
 
 exports.renderMain = async (req, res) => {
   res.render('index');
-}
+};
 
 exports.renderHashtag = async (req, res, next) => {
   const query = req.query.hashtag;

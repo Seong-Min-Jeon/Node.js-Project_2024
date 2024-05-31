@@ -1,29 +1,30 @@
-{% extends 'layout.html' %}
+<!DOCTYPE html>
+<html>
+  {% include "head.html" %}
 
-{% block content %}
-  <div class="timeline">
-    <form id="join-form" action="/auth/join" method="post">
-      <div class="input-group">
-        <label for="join-email">이메일</label>
-        <input id="join-email" type="email" name="email"></div>
-      <div class="input-group">
-        <label for="join-nick">닉네임</label>
-        <input id="join-nick" type="text" name="nick"></div>
-      <div class="input-group">
-        <label for="join-password">비밀번호</label>
-        <input id="join-password" type="password" name="password">
-      </div>
-      <button id="join-btn" type="submit" class="btn">회원가입</button>
-    </form>
-  </div>
-{% endblock %}
+  <body>
+    {% include "main.html" %}
+    
+    <div class="modal">
+        <div class="modal_body">
+          <button id="return-btn" type="button" onclick="location.href='/'">
+            <img src="/back.png" alt="뒤로가기 아이콘" width="20px">
+          </button>  
 
-{% block script %}
-  <script>
-    window.onload = () => {
-      if (new URL(location.href).searchParams.get('error')) {
-        alert('이미 존재하는 이메일입니다.');
-      }
-    };
-  </script>
-{% endblock %}
+          <h2>Join</h2>
+
+          <form id="login-form" action="/auth/join" method="post">
+            <div>
+              <input placeholder="Email" type="email" name="email" required autofocus>
+              <input placeholder="Password" type="password" name="password" required autofocus>       
+              <input placeholder="관리자 코드(관리자 외 기입 금지)" name="staff"focus>
+              <button id="join" type="submit" class="btn">Join</button>
+            </div>            
+          </form>
+        </div>
+    </div>     
+  </body>
+
+    {% include "footer.html" %}
+  </body>
+</html>

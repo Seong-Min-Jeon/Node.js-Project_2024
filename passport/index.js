@@ -4,30 +4,19 @@ const kakao = require('./kakaoStrategy');
 const User = require('../models/user');
 
 module.exports = () => {
-  passport.serializeUser((user, done) => {
-    console.log('serialize');
+  passport.serializeUser((user, done) => {    
     done(null, user.id);
   });
 
-  passport.deserializeUser((id, done) => {
-    console.log('deserialize');
-    User.findOne({
-      where: { id },
-      include: [{
-        model: User,
-        attributes: ['id', 'nick'],
-        as: 'Followers',
-      }, {
-        model: User,
-        attributes: ['id', 'nick'],
-        as: 'Followings',
-      }],
-    })
-      .then(user => {
-        console.log('user', user);
-        done(null, user);
-       })
-      .catch(err => done(err));
+  passport.deserializeUser((id, done) => {    
+    try {
+      const user = User.findOne({where: { id }});
+      done(null, user);
+    } catch(e) {
+      console.error(e);
+      return done(e);
+    }
+    
   });
 
   local();

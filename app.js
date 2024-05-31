@@ -11,6 +11,8 @@ dotenv.config();
 const indexRouter = require('./routes/index');
 const loginRouter = require('./routes/login');
 const authRouter = require('./routes/auth');
+const applyRouter = require('./routes/apply');
+const manageRouter = require('./routes/manage');
 const postRouter = require('./routes/post');
 const userRouter = require('./routes/user');
 const { sequelize } = require('./models');
@@ -18,7 +20,7 @@ const passportConfig = require('./passport');
 
 const app = express();
 passportConfig();
-app.set('port', process.env.PORT || 8001);
+app.set('port', process.env.PORT || 3000);
 app.set('view engine', 'html');
 nunjucks.configure('views', {
   express: app,
@@ -51,14 +53,16 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use((req, res, next) => {
-  res.locals.user = req.user;
+app.use(async (req, res, next) => {
+  res.locals.user = await req.user;    
   next();
 });
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/auth', authRouter);
+app.use('/apply', applyRouter);
+app.use('/manage', manageRouter);
 // app.use('/post', postRouter);
 // app.use('/user', userRouter);
 

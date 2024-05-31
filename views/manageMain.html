@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  {% include "head.html" %}
+
+  <body>
+    {% include "header.html" %}
+
+    <button id="add-dept" type="submit" class="btn">Login</button>    
+
+    <div class="container">
+      <table id="recruit">
+        <thead>
+          <tr>
+            <!-- 테이블 헤더 설정 -->
+            <th>모집분야</th>
+            <th>진행상태</th>
+            <th>모집인원</th>        
+            <th>접수마감일자</th>
+            <th>수정/삭제</th>            
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>  
+    
+    {% include "footer.html" %}
+  </body>
+</html>
+
