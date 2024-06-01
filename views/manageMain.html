@@ -13,14 +13,16 @@
 
 {% block script %}
     <script>
-    document.getElementById('delete').addEventListener('click', async function(e) {     
-        try {
+      Array.from(document.getElementsByClassName('delete')).forEach(item => {
+        item.addEventListener('click', async function(e) {     
+          try {            
             await axios.delete(`/manage/delete/${e.target.value}`);
             window.location.href='/manage';
-        } catch(err) {
+          } catch(err) {
             console.log(err)
-        }        
-    });
+          }        
+        });
+      });    
     </script>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

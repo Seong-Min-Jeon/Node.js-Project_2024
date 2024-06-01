@@ -5,8 +5,7 @@ class Dept extends Sequelize.Model {
     Dept.init({
       dname: {
         type: Sequelize.STRING(30),
-        allowNull: false,
-        unique: true,
+        allowNull: false,        
       },
       title: {
         type: Sequelize.STRING(50),

@@ -1,7 +1,7 @@
 <button id="post-dept" type="submit" class="btn" onclick="location.href='/manage/post'">목록 추가</button>    
 
 <div class="container">
-    <table id="recruit">
+    <table id="recruit-manage">
         <thead>
             <tr>
                 <!-- 테이블 헤더 설정 -->
@@ -23,7 +23,7 @@
                     <td>{{dept.due}}</td>
                     <td>
                         <button type="button" onclick="location.href='manage/put/{{dept.id}}'">수정</button>
-                        <button id="delete" value="{{dept.id}}">삭제</button>
+                        <button id="delete" class="delete" value="{{dept.id}}">삭제</button>
                     </td>
                 </tr>
             {% endfor %}

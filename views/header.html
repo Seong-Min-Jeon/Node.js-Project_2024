@@ -3,4 +3,8 @@
         <img src="/logo.png" alt="명지 테크놀로지 로고" width="80px">
     </button>
     <h1>Myongji Technology Recruit</h1>
+
+    {% if auth != null %}
+        <a id="logout" href="/auth/logout" class="btn">로그아웃</a>
+    {% endif %}
 </div>

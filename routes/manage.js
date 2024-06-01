@@ -12,7 +12,7 @@ router.get('/post', renderManagePost);
 // GET /manage/put/:id
 router.get('/put/:id', renderManagePut);
 
-// POST /manage
+// POST /manage/post
 router.post('/post', postDeptList);
 
 // DELETE /manage/delete/:id

@@ -3,21 +3,29 @@
   {% include "head.html" %}
 
   <body>
-    <table>
-      <thead id="recruit-head">
-        <tr>
-          <!-- 테이블 헤더 설정 -->
-          <th>모집분야</th>
-          <th>진행상태</th>
-          <th>모집인원</th>        
-          <th>접수마감일자</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody id="recruit-body"></tbody>
-    </table>
+    {% include "header.html" %}
+
+    <br><br><br>
+
+    {% include "apply.html" %}
 
     {% include "footer.html" %}
   </body>
 </html>
 
+{% block script %}
+    <script>
+      Array.from(document.getElementsByClassName('delete')).forEach(item => {
+        item.addEventListener('click', async function(e) {     
+          try {
+            await axios.delete(`/apply/delete/${e.target.value}`);
+            window.location.href='/apply';
+          } catch(err) {
+            console.log(err)
+          }        
+        });
+      });  
+    </script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+{% endblock %}

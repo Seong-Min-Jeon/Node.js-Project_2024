@@ -9,7 +9,7 @@ exports.renderManageMain = async (req, res) => {
     sql += 'FROM depts d LEFT OUTER JOIN applications a ON (d.id = a.deptId) ';
     sql += 'GROUP BY d.id, d.title, d.enable, d.admit, d.due';
     depts = await sequelize.query(sql, {type: sequelize.QueryTypes.SELECT});
-    res.render('manageMain', {list : depts});
+    res.render('manageMain', {auth : await req.user, list : depts});
   } else {
     res.send("<script> alert('잘못된 접근입니다.'); window.location.replace('/'); </script>");
   }

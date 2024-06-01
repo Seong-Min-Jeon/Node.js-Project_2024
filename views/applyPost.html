@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  {% include "head.html" %}
+
+  <body>
+    {% include "header.html" %}
+
+    <div class="alert">
+      <p><l>*</l>표시는 필수입력사항입니다.</p>
+    </div>
+
+    <hr style="clear: both;"></hr>
+    
+    <form id="apply-form" action="/apply/post/{{deptId}}" method="post">    
+
+      <h2>인적사항</h2>
+
+      <div class="label-div">
+        <label>이름 <l>*</l></label>      
+        <label style="margin-left: 200px;">영문이름</label>      
+      </div>
+      <div class="input-div">
+        <input name="name" required autofocus style="width: 180px;">
+        <input name="engName" style="margin-left: 60px; width: 180px;">
+      </div>
+
+      <div class="label-div">
+        <label>휴대폰번호(숫자만) <l>*</l></label>      
+        <label style="margin-left: 95px;">긴급연락처</label>   
+        <label style="margin-left: 161px;">주소(상세주소 포함) <l>*</l></label>      
+        <label style="margin-left: 377px;">이메일 <l>*</l></label>     
+      </div>
+      <div class="input-div">
+        <input type="number" name="phoneNumber" required autofocus style="width: 180px;">
+        <input type="number" name="phoneNumber2" style="margin-left: 62px; width: 180px;">
+        <input name="address" required autofocus style="margin-left: 62px; width: 470px;">
+        <input type="email" name="email" required autofocus style="margin-left: 62px; width: 300px;">
+      </div>
+
+      <hr></hr>      
+
+      <h2>자격증</h2>
+
+      <div class="label-div">
+        <label>시험명</label>      
+        <label style="margin-left: 315px;">취득일자</label>   
+        <label style="margin-left: 297px;">발급기관</label>              
+      </div>
+      <div class="input-div">
+        <input name="licenseName1" style="width: 300px;">
+        <input placeholder="2024.06.13" name="licenseGet1" style="margin-left: 62px; width: 300px;">
+        <input name="licenseAgency1" style="margin-left: 62px; width: 300px;">
+      </div>
+
+      <div class="label-div">
+        <label>시험명</label>      
+        <label style="margin-left: 315px;">취득일자</label>   
+        <label style="margin-left: 297px;">발급기관</label>              
+      </div>
+      <div class="input-div">
+        <input name="licenseName2" style="width: 300px;">
+        <input placeholder="2024.06.13" name="licenseGet2" style="margin-left: 62px; width: 300px;">
+        <input name="licenseAgency2" style="margin-left: 62px; width: 300px;">
+      </div>
+
+      <div class="label-div">
+        <label>시험명</label>      
+        <label style="margin-left: 315px;">취득일자</label>   
+        <label style="margin-left: 297px;">발급기관</label>              
+      </div>
+      <div class="input-div">
+        <input name="licenseName3" style="width: 300px;">
+        <input placeholder="2024.06.13" name="licenseGet3" style="margin-left: 62px; width: 300px;">
+        <input name="licenseAgency3" style="margin-left: 62px; width: 300px;">
+      </div>
+
+      <div class="label-div">
+        <label>시험명</label>      
+        <label style="margin-left: 315px;">취득일자</label>   
+        <label style="margin-left: 297px;">발급기관</label>              
+      </div>
+      <div class="input-div">
+        <input name="licenseName4" style="width: 300px;">
+        <input placeholder="2024.06.13" name="licenseGet4" style="margin-left: 62px; width: 300px;">
+        <input name="licenseAgency4" style="margin-left: 62px; width: 300px;">
+      </div>
+
+      <hr></hr>      
+
+      <h2>경력사항</h2>
+
+      <div class="label-div">
+        <label>기관명</label>      
+        <label style="margin-left: 315px;">근무기간</label>   
+        <label style="margin-left: 297px;">담당업무</label>
+      </div>
+      <div class="input-div">
+        <input name="companyName1" style="width: 300px;">
+        <input placeholder="3년 6개월" name="companyPeriod1" style="margin-left: 62px; width: 300px;">
+        <input name="companyJob1" style="margin-left: 62px; width: 300px;">
+      </div>
+
+      <div class="label-div">
+        <label>기관명</label>      
+        <label style="margin-left: 315px;">근무기간</label>   
+        <label style="margin-left: 297px;">담당업무</label>
+      </div>
+      <div class="input-div">
+        <input name="companyName2" style="width: 300px;">
+        <input placeholder="3년 6개월" name="companyPeriod2" style="margin-left: 62px; width: 300px;">
+        <input name="companyJob2" style="margin-left: 62px; width: 300px;">
+      </div>
+
+      <div class="label-div">
+        <label>기관명</label>      
+        <label style="margin-left: 315px;">근무기간</label>   
+        <label style="margin-left: 297px;">담당업무</label>
+      </div>
+      <div class="input-div">
+        <input name="companyName3" style="width: 300px;">
+        <input placeholder="3년 6개월" name="companyPeriod3" style="margin-left: 62px; width: 300px;">
+        <input name="companyJob3" style="margin-left: 62px; width: 300px;">
+      </div>
+
+      <div class="label-div">
+        <label>기관명</label>      
+        <label style="margin-left: 315px;">근무기간</label>   
+        <label style="margin-left: 297px;">담당업무</label>
+      </div>
+      <div class="input-div">
+        <input name="companyName4" style="width: 300px;">
+        <input placeholder="3년 6개월" name="companyPeriod4" style="margin-left: 62px; width: 300px;">
+        <input name="companyJob4" style="margin-left: 62px; width: 300px;">
+      </div>
+      
+      <hr></hr>      
+
+      <h2>자기소개서</h2>
+      <h3>각 문항별 최대 1000자</h3>
+
+      <div class="label-div">
+        <label>기업/직무를 선택한 동기/계기 <l>*</l></label>              
+      </div>
+      <div class="input-div">
+        <textarea name="introduction1" required autofocus style="width: 93%; height: 300px; text-align: left; vertical-align: top;"></textarea>
+      </div>
+
+      <div class="label-div">
+        <label>자신의 비전/목표/계획 <l>*</l></label>              
+      </div>
+      <div class="input-div">
+        <textarea name="introduction2" required autofocus style="width: 93%; height: 300px; text-align: left; vertical-align: top;"></textarea>
+      </div>
+
+      <div class="label-div">
+        <label>기업과 직무에 대한 의지/열정 <l>*</l></label>              
+      </div>
+      <div class="input-div">
+        <textarea name="introduction3" required autofocus style="width: 93%; height: 300px; text-align: left; vertical-align: top;"></textarea>
+      </div>
+
+      <div class="label-div">
+        <label>자신의 역량/강점 <l>*</l></label>              
+      </div>
+      <div class="input-div">
+        <textarea name="introduction4" required autofocus style="width: 93%; height: 300px; text-align: left; vertical-align: top;"></textarea>
+      </div>
+
+      <button id="post" type="submit" class="btn">지원하기</button>
+    </form>
+    
+    {% include "footer.html" %}
+  </body>
+</html>
+

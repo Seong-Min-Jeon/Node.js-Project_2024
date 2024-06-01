@@ -1,3 +1,9 @@
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
@@ -14,6 +20,14 @@ body {
 }
 #header h1 {          
     padding-left: 130px;    
+}
+#header a {    
+    position: absolute;
+    top: 20px;
+    right: 3%;
+    color: white;
+    font-size: 18px;
+    text-decoration-line: none;
 }
 
 #footer {
@@ -156,40 +170,40 @@ body {
     justify-content: center;
 }
 
-#recruit {
+#recruit-manage {
     border-top: 2px solid black; 
     border-collapse: collapse;
     width: 80%;
     margin-bottom: 50px;
     font-size: 18px;
 }
-#recruit th {
+#recruit-manage th {
     border-bottom: 1px solid black; 
     background-color: #e6e6e6;     
     height: 40px;
 }
-#recruit th:nth-child(1) {
+#recruit-manage th:nth-child(1) {
     width: 30%;
 }
-#recruit th:nth-child(2) {
+#recruit-manage th:nth-child(2) {
     width: 12%;
 }
-#recruit th:nth-child(3) {
+#recruit-manage th:nth-child(3) {
     width: 10%;
 }
-#recruit th:nth-child(4) {
+#recruit-manage th:nth-child(4) {
     width: 10%;
 }
-#recruit th:nth-child(5) {
+#recruit-manage th:nth-child(5) {
     width: 25%;
 }
-#recruit th:nth-child(6) {
+#recruit-manage th:nth-child(6) {
     width: 13%;
 }
-#recruit tr {
+#recruit-manage tr {
     height: 100px;    
 }
-#recruit td {
+#recruit-manage td {
     border-bottom: 1px solid black; 
     text-align: center; 
     vertical-align: middle;
@@ -203,4 +217,100 @@ body {
     border-radius: 10rem;
     width: 400px;
     height: 50px;
+}
+
+#recruit-apply {
+    border-top: 2px solid black; 
+    border-collapse: collapse;
+    width: 80%;
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+#recruit-apply th {
+    border-bottom: 1px solid black; 
+    background-color: #e6e6e6;     
+    height: 40px;
+}
+#recruit-apply th:nth-child(1) {
+    width: 30%;
+}
+#recruit-apply th:nth-child(2) {
+    width: 15%;
+}
+#recruit-apply th:nth-child(3) {
+    width: 15%;
+}
+#recruit-apply th:nth-child(4) {
+    width: 25%;
+}
+#recruit-apply th:nth-child(5) {
+    width: 15%;
+}
+#recruit-apply tr {
+    height: 100px;    
+}
+#recruit-apply td {
+    border-bottom: 1px solid black; 
+    text-align: center; 
+    vertical-align: middle;
+}
+
+.alert {
+    float: right;
+    margin-right: 30px;
+}
+
+l {
+    color: red;
+}
+
+#apply-form > div {
+    margin-left: 100px;
+}
+#apply-form > div > input {    
+    height: 35px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    background-color: #F8F8F8;
+    font-size: 15px;
+}
+#apply-form > div > textarea {    
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+#apply-form > hr {
+    width: 90%; 
+    height: 1.5px; 
+    background-color: #071d49;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+#apply-form > h2 {
+    text-align: center;
+}
+#apply-form > h3 {
+    text-align: center;    
+    font-size: 18px;
+    font-weight: unset;
+}
+#apply-form > button {
+    color: #fff;
+    font-size: 16px;
+    background-color: #005eb8;
+    border-radius: 5rem;
+    width: 200px;
+    height: 60px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 10%;
+    float: right;
+}
+
+.label-div {    
+    margin-bottom: 5px;
+}
+.input-div {
+    margin-bottom: 20px;
 }

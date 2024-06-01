@@ -13,11 +13,7 @@ class Application extends Sequelize.Model {
         type: Sequelize.INTEGER,
         allowNull: false,
         foreignKey: true,
-      },
-      picture: {
-        type: Sequelize.STRING(100),
-        allowNull: false,
-      },
+      },      
       name: {
         type: Sequelize.STRING(20),
         allowNull: false,
@@ -27,11 +23,11 @@ class Application extends Sequelize.Model {
         allowNull: true,
       },
       phoneNumber: {
-        type: Sequelize.STRING(20),
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       phoneNumber2: {
-        type: Sequelize.STRING(20),
+        type: Sequelize.INTEGER,
         allowNull: true,
       },
       address: {

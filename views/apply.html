@@ -1,0 +1,40 @@
+<div class="container">
+    <table id="recruit-apply">
+        <thead>
+            <tr>
+                <!-- 테이블 헤더 설정 -->
+                <th>모집분야</th>
+                <th>진행상태</th>
+                <th>모집인원</th>                        
+                <th>접수마감일자</th>
+                {% if app == null %}
+                    <th>지원하기</th>
+                {% elif app != null %}
+                    <th>수정/삭제</th>
+                {% endif %}                            
+            </tr>
+        </thead>
+        <tbody>        
+            {% for dept in list %}                        
+                <tr>
+                    <td>{{dept.title}}</td>
+                    <td>{{dept.enable}}</td>
+                    <td>{{dept.admit}}</td>                    
+                    <td>{{dept.due}}</td>
+                    <td>                        
+                        {% if (app == null) and (dept.enable == '마감') %}
+
+                        {% elif app == null %}
+                            <button type="button" onclick="location.href='apply/post/{{dept.id}}'">지원하기</button>
+                        {% elif (dept.id == app.deptId) and (dept.enable == '마감') %}                            
+                            <button id="delete" value="{{app.appId}}">삭제</button>
+                        {% elif dept.id == app.deptId %}
+                            <button type="button" onclick="location.href='apply/put/{{app.appId}}'">수정</button>
+                            <button id="delete" class="delete" value="{{app.appId}}">삭제</button>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>  
