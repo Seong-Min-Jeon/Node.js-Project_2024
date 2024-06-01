@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  {% include "head.html" %}
+
+  <body>
+    {% include "header.html" %}
+
+    {% include "manage.html" %}
+
+    <div class="modal">
+      <div class="modal_body">        
+        <button id="return-btn" type="button" onclick="location.href='/manage'">
+          <img src="/back.png" alt="뒤로가기 아이콘" width="20px">
+        </button>    
+        
+        <h2>목록 추가</h2>
+        <form id="modal-form" action="/manage/post" method="post">
+          <div>
+            <input placeholder="부서명" name="dname" required autofocus>
+            <input placeholder="모집분야" name="title" required autofocus>        
+            <input placeholder="모집인원" type="number" name="admit" required autofocus>                        
+            <input placeholder="접수마감일자" type="date" name="due" required autofocus>
+            <div>
+              <label>진행 중</label>
+              <input type="checkbox" name="enable"> 
+            </div>
+            
+            <button id="post" type="submit" class="btn">등록하기</button>
+          </div>
+        </form>
+      </div>
+    </div>     
+    
+    {% include "footer.html" %}
+  </body>
+</html>
+

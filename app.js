@@ -13,8 +13,6 @@ const loginRouter = require('./routes/login');
 const authRouter = require('./routes/auth');
 const applyRouter = require('./routes/apply');
 const manageRouter = require('./routes/manage');
-const postRouter = require('./routes/post');
-const userRouter = require('./routes/user');
 const { sequelize } = require('./models');
 const passportConfig = require('./passport');
 
@@ -63,8 +61,6 @@ app.use('/login', loginRouter);
 app.use('/auth', authRouter);
 app.use('/apply', applyRouter);
 app.use('/manage', manageRouter);
-// app.use('/post', postRouter);
-// app.use('/user', userRouter);
 
 // 404 에러처리 미들웨어
 app.use((req, res, next) => {

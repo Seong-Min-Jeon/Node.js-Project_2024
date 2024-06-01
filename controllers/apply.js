@@ -1,5 +1,6 @@
 const { isLoggedIn, isLoggedInStaff } = require('../authentication');
 
+// 사용자 메인 페이지
 exports.renderApplyMain = (req, res) => {  
   if(isLoggedInStaff(req, res)) {
     res.send("<script> alert('잘못된 접근입니다.'); window.location.replace('/'); </script>");

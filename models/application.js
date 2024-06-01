@@ -167,8 +167,8 @@ class Application extends Sequelize.Model {
   }
 
   static associate(db) {
-    db.Application.belongsTo(db.User, { foreignKey: 'uid', targetKey: 'id' });
-    db.Application.belongsTo(db.Dept, { foreignKey: 'deptId', targetKey: 'id' });
+    db.Application.belongsTo(db.User, { foreignKey: 'uid', targetKey: 'id', onDelete: "CASCADE", hooks: true });
+    db.Application.belongsTo(db.Dept, { foreignKey: 'deptId', targetKey: 'id', onDelete: "CASCADE", hooks: true });
   } 
 
 };

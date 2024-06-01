@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  {% include "head.html" %}
+
+  <body>
+    {% include "header.html" %}
+
+    {% include "manage.html" %}
+
+    <div class="modal">
+      <div class="modal_body">        
+        <button id="return-btn" type="button" onclick="location.href='/manage'">
+          <img src="/back.png" alt="뒤로가기 아이콘" width="20px">
+        </button>    
+        
+        <h2>목록 수정</h2>
+        <form id="modal-form">
+          <div>            
+            <input id="dname" name="dname" value="{{dept.dname}}" required autofocus>
+            <input id="title" name="title" value="{{dept.title}}" required autofocus>        
+            <input id="admit" type="number" name="admit" value="{{dept.admit}}" required autofocus>                        
+            <input id="due" type="date" name="due" value="{{dept.due}}" required autofocus>
+            <div>
+              <label>진행 중</label>
+              {% if dept.enable == 1 %}      
+                <input type="checkbox" id="enable" name="enable" checked> 
+              {% else %}
+                <input type="checkbox" id="enable" name="enable">               
+              {% endif %}
+            </div>          
+            <button id="put" value="{{dept.id}}" type="button">수정하기</button>
+          </div>
+        </form>        
+      </div>
+    </div>     
+    
+    {% include "footer.html" %}
+  </body>
+</html>
+
+{% block script %}
+  <script>
+    document.getElementById('modal-form').addEventListener("submit", (e) => {
+      e.preventDefault();    
+    });
+
+    document.getElementById('put').addEventListener('click', async function(e) {         
+      try {
+        const dname = document.getElementById("dname").value;
+        const title = document.getElementById("title").value;
+        const admit = document.getElementById("admit").value;
+        const due = document.getElementById("due").value;
+        const enable = document.getElementById("enable").checked;
+        await axios.put(`${e.target.value}`, {dname, title, admit, due, enable});
+        window.location.href='/manage';
+      } catch(err) {
+          console.log(err)
+      }        
+    });
+  </script>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+{% endblock %}
+

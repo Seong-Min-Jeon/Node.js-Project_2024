@@ -1,7 +1,19 @@
-{% extends 'layout.html' %}
+<!DOCTYPE html>
+<html>
+  {% include "head.html" %}
 
-{% block content %}
-  <h1>{{message}}</h1>
-  <h2>{{error.status}}</h2>
-  <pre>{{error.stack}}</pre>
-{% endblock %}
+  <body>
+    {% include "header.html" %}
+    
+    <br><br><br>
+    
+    <h1>{{message}}</h1>
+    <h2>{{error.status}}</h2>
+    <pre>{{error.stack}}</pre>
+
+    <br><br><br>
+
+    {% include "footer.html" %}
+  </body>
+</html>
+

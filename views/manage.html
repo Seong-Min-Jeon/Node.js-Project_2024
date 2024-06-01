@@ -1,0 +1,32 @@
+<button id="post-dept" type="submit" class="btn" onclick="location.href='/manage/post'">목록 추가</button>    
+
+<div class="container">
+    <table id="recruit">
+        <thead>
+            <tr>
+                <!-- 테이블 헤더 설정 -->
+                <th>모집분야</th>
+                <th>진행상태</th>
+                <th>모집인원</th>        
+                <th>지원인원</th>
+                <th>접수마감일자</th>
+                <th>수정/삭제</th>            
+            </tr>
+        </thead>
+        <tbody>        
+            {% for dept in list %}                        
+                <tr>
+                    <td>{{dept.title}}</td>
+                    <td>{{dept.enable}}</td>
+                    <td>{{dept.admit}}</td>
+                    <td>{{dept.cnt}}</td>
+                    <td>{{dept.due}}</td>
+                    <td>
+                        <button type="button" onclick="location.href='manage/put/{{dept.id}}'">수정</button>
+                        <button id="delete" value="{{dept.id}}">삭제</button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>  

@@ -78,14 +78,14 @@ body {
     transform:translateY(-50%); 
 }
 
-#login-form {
+#modal-form {
     padding-top: 70px;
 }
-#login-form > div {
-    padding-top: 10px;
-    padding-bottom: 20px;    
+#modal-form > div {
+    padding-top: 10px;    
+    margin-bottom: 20px;
 }
-#login-form > div > input{
+#modal-form > div > input {
     width: 100%;
     height: 48px;
     padding: 0 10px;
@@ -94,17 +94,31 @@ body {
     border-radius: 6px;
     background-color: #F8F8F8;
 }
-#login-form > div > input::placeholder{
+#modal-form > div > input::placeholder {
     color: darkgrey;
 }
-#login-form > div > button[type="submit"]{
+#modal-form > div > button {
     color: #fff;
     font-size: 16px;
     background-color: #005eb8;
     margin-top: 20px;
     border-radius: 10rem;
     width: 400px;
-    height: 50px;
+    height: 50px;    
+}
+#modal-form > div > div {
+    height: 30px;    
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#modal-form > div > div > label {
+    font-size: 20px;
+    vertical-align: middle;
+}
+#modal-form > div > div > input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
 }
 
 #home-btn {
@@ -123,14 +137,14 @@ body {
     margin-left: 170px;    
 } 
 
-#add-dept {
+#post-dept {
     color: #fff;
     font-size: 16px;
     background-color: #005eb8;
     margin-top: 50px;
     margin-right: 200px;
     margin-bottom: 30px;
-    border-radius: 10rem;
+    border-radius: 5rem;
     width: 150px;
     height: 40px;
     float: right;
@@ -147,6 +161,7 @@ body {
     border-collapse: collapse;
     width: 80%;
     margin-bottom: 50px;
+    font-size: 18px;
 }
 #recruit th {
     border-bottom: 1px solid black; 
@@ -160,16 +175,32 @@ body {
     width: 12%;
 }
 #recruit th:nth-child(3) {
-    width: 15%;
+    width: 10%;
 }
 #recruit th:nth-child(4) {
-    width: 30%;
+    width: 10%;
 }
 #recruit th:nth-child(5) {
+    width: 25%;
+}
+#recruit th:nth-child(6) {
     width: 13%;
+}
+#recruit tr {
+    height: 100px;    
 }
 #recruit td {
     border-bottom: 1px solid black; 
     text-align: center; 
     vertical-align: middle;
+}
+
+#put {
+    color: #fff;
+    font-size: 16px;
+    background-color: #005eb8;
+    margin-top: 20px;
+    border-radius: 10rem;
+    width: 400px;
+    height: 50px;
 }

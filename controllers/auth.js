@@ -3,6 +3,7 @@ const passport = require('passport');
 const User = require('../models/user');
 const { isLoggedIn } = require('../authentication');
 
+// 회원가입 시 작동
 exports.join = async (req, res, next) => {
   if(isLoggedIn(req)) {
     return res.redirect('/');
@@ -31,6 +32,7 @@ exports.join = async (req, res, next) => {
   }
 }
 
+// 로그인 시 작동
 exports.login = (req, res, next) => {
   if(isLoggedIn(req)) {
     return res.redirect('/');
@@ -59,6 +61,7 @@ exports.login = (req, res, next) => {
   })(req, res, next); // 미들웨어 내의 미들웨어에는 (req, res, next)를 붙입니다.
 };
 
+// 로그아웃 시 작동
 exports.logout = (req, res) => {
   if(!isLoggedIn(req)) {
     return res.redirect('/');
