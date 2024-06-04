@@ -52,6 +52,7 @@
         const due = document.getElementById("due").value;
         const enable = document.getElementById("enable").checked;
         await axios.put(`${e.target.value}`, {dname, title, admit, due, enable});
+        alert('수정되었습니다.');      
         window.location.href='/manage';
       } catch(err) {
           console.log(err)
@@ -61,4 +62,3 @@
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 {% endblock %}
-

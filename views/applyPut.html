@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  {% include "head.html" %}
+
+  <body>
+    {% include "header.html" %}
+
+    <div class="alert">
+      <p><l>*</l>표시는 필수입력사항입니다.</p>
+    </div>
+
+    <hr style="clear: both;"></hr>
+    
+    <form id="apply-form">    
+
+      <h2>인적사항</h2>
+
+      <div class="label-div">
+        <label>이름 <l>*</l></label>      
+        <label style="margin-left: 200px;">영문이름</label>      
+      </div>
+      <div class="input-div">
+        <input id="name" value="{{app.name}}" required autofocus style="width: 180px;">
+        <input id="engName" value="{{app.engName}}" style="margin-left: 60px; width: 180px;">
+      </div>
+
+      <div class="label-div">
+        <label>휴대폰번호(숫자만) <l>*</l></label>      
+        <label style="margin-left: 95px;">긴급연락처</label>   
+        <label style="margin-left: 161px;">주소(상세주소 포함) <l>*</l></label>      
+        <label style="margin-left: 377px;">이메일 <l>*</l></label>     
+      </div>
+      <div class="input-div">
+        <input type="number" id="phoneNumber" value="{{app.phoneNumber}}" required autofocus style="width: 180px;">
+        <input type="number" id="phoneNumber2" value="{{app.phoneNumber2}}" style="margin-left: 62px; width: 180px;">
+        <input id="address" value="{{app.address}}" required autofocus style="margin-left: 62px; width: 470px;">
+        <input type="email" id="email" value="{{app.email}}" required autofocus style="margin-left: 62px; width: 300px;">
+      </div>
+
+      <hr></hr>      
+
+      <h2>자격증</h2>
+
+      <div class="label-div">
+        <label>시험명</label>      
+        <label style="margin-left: 315px;">취득일자</label>   
+        <label style="margin-left: 297px;">발급기관</label>              
+      </div>
+      <div class="input-div">
+        <input id="licenseName1" value="{{app.licenseName1}}" style="width: 300px;">
+        <input placeholder="2024.06.13" id="licenseGet1" value="{{app.licenseGet1}}" style="margin-left: 62px; width: 300px;">
+        <input id="licenseAgency1" value="{{app.licenseAgency1}}" style="margin-left: 62px; width: 300px;">
+      </div>
+
+      <div class="label-div">
+        <label>시험명</label>      
+        <label style="margin-left: 315px;">취득일자</label>   
+        <label style="margin-left: 297px;">발급기관</label>              
+      </div>
+      <div class="input-div">
+        <input id="licenseName2" value="{{app.licenseName2}}" style="width: 300px;">
+        <input placeholder="2024.06.13" id="licenseGet2" value="{{app.licenseGet2}}" style="margin-left: 62px; width: 300px;">
+        <input id="licenseAgency2" value="{{app.licenseAgency2}}" style="margin-left: 62px; width: 300px;">
+      </div>
+
+      <div class="label-div">
+        <label>시험명</label>      
+        <label style="margin-left: 315px;">취득일자</label>   
+        <label style="margin-left: 297px;">발급기관</label>              
+      </div>
+      <div class="input-div">
+        <input id="licenseName3" value="{{app.licenseName3}}" style="width: 300px;">
+        <input placeholder="2024.06.13" id="licenseGet3" value="{{app.licenseGet3}}" style="margin-left: 62px; width: 300px;">
+        <input id="licenseAgency3" value="{{app.licenseAgency3}}" style="margin-left: 62px; width: 300px;">
+      </div>
+
+      <div class="label-div">
+        <label>시험명</label>      
+        <label style="margin-left: 315px;">취득일자</label>   
+        <label style="margin-left: 297px;">발급기관</label>              
+      </div>
+      <div class="input-div">
+        <input id="licenseName4" value="{{app.licenseName4}}" style="width: 300px;">
+        <input placeholder="2024.06.13" id="licenseGet4" value="{{app.licenseGet4}}" style="margin-left: 62px; width: 300px;">
+        <input id="licenseAgency4" value="{{app.licenseAgency4}}" style="margin-left: 62px; width: 300px;">
+      </div>
+
+      <hr></hr>      
+
+      <h2>경력사항</h2>
+
+      <div class="label-div">
+        <label>기관명</label>      
+        <label style="margin-left: 315px;">근무기간</label>   
+        <label style="margin-left: 297px;">담당업무</label>
+      </div>
+      <div class="input-div">
+        <input id="companyName1" value="{{app.companyName1}}" style="width: 300px;">
+        <input placeholder="3년 6개월" id="companyPeriod1" value="{{app.companyPeriod1}}" style="margin-left: 62px; width: 300px;">
+        <input id="companyJob1" value="{{app.companyJob1}}" style="margin-left: 62px; width: 300px;">
+      </div>
+
+      <div class="label-div">
+        <label>기관명</label>      
+        <label style="margin-left: 315px;">근무기간</label>   
+        <label style="margin-left: 297px;">담당업무</label>
+      </div>
+      <div class="input-div">
+        <input id="companyName2" value="{{app.companyName2}}" style="width: 300px;">
+        <input placeholder="3년 6개월" id="companyPeriod2" value="{{app.companyPeriod2}}" style="margin-left: 62px; width: 300px;">
+        <input id="companyJob2" value="{{app.companyJob2}}" style="margin-left: 62px; width: 300px;">
+      </div>
+
+      <div class="label-div">
+        <label>기관명</label>      
+        <label style="margin-left: 315px;">근무기간</label>   
+        <label style="margin-left: 297px;">담당업무</label>
+      </div>
+      <div class="input-div">
+        <input id="companyName3" value="{{app.companyName3}}" style="width: 300px;">
+        <input placeholder="3년 6개월" id="companyPeriod3" value="{{app.companyPeriod3}}" style="margin-left: 62px; width: 300px;">
+        <input id="companyJob3" value="{{app.companyJob3}}" style="margin-left: 62px; width: 300px;">
+      </div>
+
+      <div class="label-div">
+        <label>기관명</label>      
+        <label style="margin-left: 315px;">근무기간</label>   
+        <label style="margin-left: 297px;">담당업무</label>
+      </div>
+      <div class="input-div">
+        <input id="companyName4" value="{{app.companyName4}}" style="width: 300px;">
+        <input placeholder="3년 6개월" id="companyPeriod4" value="{{app.companyPeriod4}}" style="margin-left: 62px; width: 300px;">
+        <input id="companyJob4" value="{{app.companyJob4}}" style="margin-left: 62px; width: 300px;">
+      </div>
+
+      <hr></hr>
+
+      <h2>자기소개서</h2>
+      <h3>각 문항별 최대 1000자</h3>
+
+      <div class="label-div">
+        <label>기업/직무를 선택한 동기/계기 <l>*</l></label>              
+      </div>
+      <div class="input-div">
+        <textarea id="introduction1" required autofocus style="width: 93%; height: 300px; text-align: left; vertical-align: top;">{{app.introduction1}}</textarea>
+      </div>
+
+      <div class="label-div">
+        <label>자신의 비전/목표/계획 <l>*</l></label>              
+      </div>
+      <div class="input-div">
+        <textarea id="introduction2" required autofocus style="width: 93%; height: 300px; text-align: left; vertical-align: top;">{{app.introduction2}}</textarea>
+      </div>
+
+      <div class="label-div">
+        <label>기업과 직무에 대한 의지/열정 <l>*</l></label>              
+      </div>
+      <div class="input-div">
+        <textarea id="introduction3" required autofocus style="width: 93%; height: 300px; text-align: left; vertical-align: top;">{{app.introduction3}}</textarea>
+      </div>
+
+      <div class="label-div">
+        <label>자신의 역량/강점 <l>*</l></label>              
+      </div>
+      <div class="input-div">
+        <textarea id="introduction4" required autofocus style="width: 93%; height: 300px; text-align: left; vertical-align: top;">{{app.introduction4}}</textarea>
+      </div>
+
+      <button id="put" value="{{app.id}}" type="button">지원하기</button>
+    </form>
+
+    {% include "footer.html" %}
+  </body>
+</html>
+
+{% block script %}
+  <script>
+    document.getElementById('apply-form').addEventListener("submit", (e) => {
+      e.preventDefault();    
+    });
+
+    document.getElementById('put').addEventListener('click', async function(e) {         
+      try {
+        const name = document.getElementById("name").value;
+        const engName = document.getElementById("engName").value;
+        const phoneNumber = document.getElementById("phoneNumber").value;
+        const phoneNumber2 = document.getElementById("phoneNumber2").value;
+        const address = document.getElementById("address").value;
+        const email = document.getElementById("email").value;
+        const licenseName1 = document.getElementById("licenseName1").value;
+        const licenseGet1 = document.getElementById("licenseGet1").value;
+        const licenseAgency1 = document.getElementById("licenseAgency1").value;
+        const licenseName2 = document.getElementById("licenseName2").value;
+        const licenseGet2 = document.getElementById("licenseGet2").value;
+        const licenseAgency2 = document.getElementById("licenseAgency2").value;
+        const licenseName3 = document.getElementById("licenseName3").value;
+        const licenseGet3 = document.getElementById("licenseGet3").value;
+        const licenseAgency3 = document.getElementById("licenseAgency3").value;
+        const licenseName4 = document.getElementById("licenseName4").value;
+        const licenseGet4 = document.getElementById("licenseGet4").value;
+        const licenseAgency4 = document.getElementById("licenseAgency4").value;
+        const companyName1 = document.getElementById("companyName1").value;
+        const companyPeriod1 = document.getElementById("companyPeriod1").value;
+        const companyJob1 = document.getElementById("companyJob1").value;
+        const companyName2 = document.getElementById("companyName2").value;
+        const companyPeriod2 = document.getElementById("companyPeriod2").value;
+        const companyJob2 = document.getElementById("companyJob2").value;
+        const companyName3 = document.getElementById("companyName3").value;
+        const companyPeriod3 = document.getElementById("companyPeriod3").value;
+        const companyJob3 = document.getElementById("companyJob3").value;
+        const companyName4 = document.getElementById("companyName4").value;
+        const companyPeriod4 = document.getElementById("companyPeriod4").value;
+        const companyJob4 = document.getElementById("companyJob4").value;
+        const introduction1 = document.getElementById("introduction1").value;
+        const introduction2 = document.getElementById("introduction2").value;
+        const introduction3 = document.getElementById("introduction3").value;
+        const introduction4 = document.getElementById("introduction4").value;
+        await axios.put(`${e.target.value}`, {name, engName, phoneNumber, phoneNumber2, address, email, licenseName1, 
+                                              licenseGet1, licenseAgency1, licenseName2, licenseGet2, licenseAgency2, 
+                                              licenseName3, licenseGet3, licenseAgency3, licenseName4, licenseGet4, 
+                                              licenseAgency4, companyName1, companyPeriod1, companyJob1, companyName2, 
+                                              companyPeriod2, companyJob2, companyName3, companyPeriod3, companyJob3, 
+                                              companyName4, companyPeriod4, companyJob4, introduction1, introduction2, 
+                                              introduction3, introduction4});
+        alert('수정되었습니다.');                                              
+        window.location.href='/apply';
+      } catch(err) {
+          console.log(err)
+      }        
+    });
+  </script>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+{% endblock %}

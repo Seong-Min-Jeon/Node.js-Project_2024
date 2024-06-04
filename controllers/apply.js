@@ -15,8 +15,6 @@ exports.renderApplyMain = async (req, res) => {
     sql += `WHERE a.uid = ${res.locals.user.id}`;
     application = await sequelize.query(sql, {type: sequelize.QueryTypes.SELECT});    
 
-    console.log(application[0]);
-
     res.render('applyMain', {auth : await req.user, list : depts, app : application[0]});
   } else {
     res.send("<script> alert('잘못된 접근입니다.'); window.location.replace('/'); </script>");
@@ -27,6 +25,19 @@ exports.renderApplyMain = async (req, res) => {
 exports.renderApplyPost = (req, res) => {  
   if(isLoggedIn(req)) {
     res.render('applyPost', {deptId : req.params.deptId});
+  } else {
+    res.send("<script> alert('잘못된 접근입니다.'); window.location.replace('/'); </script>");
+  }
+}
+
+// 사용자의 입사 지원서 수정 페이지
+exports.renderApplyPut = async (req, res) => {  
+  if(isLoggedIn(req)) {
+    sql = 'SELECT * ';
+    sql += 'From applications ';
+    sql += `WHERE id = ${req.params.id}`;
+    data = await sequelize.query(sql, {type: sequelize.QueryTypes.SELECT});        
+    res.render('applyPut', {app : data[0]});
   } else {
     res.send("<script> alert('잘못된 접근입니다.'); window.location.replace('/'); </script>");
   }
@@ -65,4 +76,45 @@ exports.postApplication = async (req, res, next) => {
   } else {
     res.send("<script> alert('잘못된 접근입니다.'); window.location.replace('/'); </script>");
   }
+};
+
+// 지원서 DB에서 삭제
+exports.deleteApp = async (req, res, next) => {
+  if(isLoggedIn(req, res)) {
+    try {    
+      res.send(await sequelize.query(`DELETE FROM applications WHERE id = ${req.params.id}`));
+    } catch (error) {
+      console.error(error);
+      next(error);
+    }
+  } else {
+    res.send("<script> alert('잘못된 접근입니다.'); window.location.replace('/'); </script>");
+  }  
+};
+
+// 지원서 DB에서 수정
+exports.updateApp = async (req, res, next) => {
+  if(isLoggedIn(req, res)) {
+    try {    
+      sql = 'UPDATE applications ';
+      sql += `SET name='${req.body.name}', engName='${req.body.engName}', phoneNumber='${req.body.phoneNumber}', phoneNumber2='${req.body.phoneNumber2}', `;
+      sql += `address='${req.body.address}', email='${req.body.email}', licenseName1='${req.body.licenseName1}', licenseGet1='${req.body.licenseGet1}', `;
+      sql += `licenseAgency1='${req.body.licenseAgency1}', licenseName2='${req.body.licenseName2}', licenseGet2='${req.body.licenseGet2}', `;
+      sql += `licenseAgency2='${req.body.licenseAgency2}', licenseName3='${req.body.licenseName3}', licenseGet3='${req.body.licenseGet3}', `;
+      sql += `licenseAgency3='${req.body.licenseAgency3}', licenseName4='${req.body.licenseName4}', licenseGet4='${req.body.licenseGet4}', `;
+      sql += `licenseAgency4='${req.body.licenseAgency4}', companyName1='${req.body.companyName1}', companyPeriod1='${req.body.companyPeriod1}', `;
+      sql += `companyJob1='${req.body.companyJob1}', companyName2='${req.body.companyName2}', companyPeriod2='${req.body.companyPeriod2}', `;
+      sql += `companyJob2='${req.body.companyJob2}', companyName3='${req.body.companyName3}', companyPeriod3='${req.body.companyPeriod3}', `;
+      sql += `companyJob3='${req.body.companyJob3}', companyName4='${req.body.companyName4}', companyPeriod4='${req.body.companyPeriod4}', `;
+      sql += `companyJob4='${req.body.companyJob4}', introduction1='${req.body.introduction1}', introduction2='${req.body.introduction2}', `;
+      sql += `introduction3='${req.body.introduction3}', introduction4='${req.body.introduction4}' `;
+      sql += `WHERE id = ${req.params.id}`;
+      res.send(await sequelize.query(sql));
+    } catch (error) {
+      console.error(error);
+      next(error);
+    }
+  } else {
+    res.send("<script> alert('잘못된 접근입니다.'); window.location.replace('/'); </script>");
+  }  
 };

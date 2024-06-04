@@ -27,7 +27,7 @@ exports.renderManagePost = (req, res) => {
 // 관리자의 모집 리스트 수정 페이지
 exports.renderManagePut = async (req, res) => {  
   if(isLoggedInStaff(req, res)) {
-    sql = 'SELECT dname, title, enable, admit, due ';
+    sql = 'SELECT * ';
     sql += 'From depts ';
     sql += `WHERE id = ${req.params.id}`;
     data = await sequelize.query(sql, {type: sequelize.QueryTypes.SELECT});        
@@ -72,7 +72,6 @@ exports.deleteDept = async (req, res, next) => {
 // 모집 리스트 DB에서 수정
 exports.updateDept = async (req, res, next) => {
   if(isLoggedInStaff(req, res)) {
-    
     try {    
       sql = 'UPDATE depts ';
       sql += `SET dname='${req.body.dname}', title='${req.body.title}', admit='${req.body.admit}', due='${req.body.due}', enable='${(req.body.enable) ? 1 : 0}' `;

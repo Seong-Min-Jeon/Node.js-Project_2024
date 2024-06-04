@@ -19,6 +19,7 @@
         item.addEventListener('click', async function(e) {     
           try {
             await axios.delete(`/apply/delete/${e.target.value}`);
+            alert('삭제되었습니다.');     
             window.location.href='/apply';
           } catch(err) {
             console.log(err)
