@@ -28,7 +28,7 @@ class Application extends Sequelize.Model {
       },
       phoneNumber2: {
         type: Sequelize.INTEGER,
-        allowNull: true,
+        allowNull: false,
       },
       address: {
         type: Sequelize.STRING(100),

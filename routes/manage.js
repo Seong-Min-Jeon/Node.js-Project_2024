@@ -1,5 +1,6 @@
 const express = require('express');
-const {renderManageMain, renderManagePost, renderManagePut, postDeptList, deleteDept, updateDept} = require('../controllers/manage');
+const {renderManageMain, renderManagePost, renderManagePut, 
+    postDeptList, deleteDept, updateDept} = require('../controllers/manage');
 
 const router = express.Router();
 

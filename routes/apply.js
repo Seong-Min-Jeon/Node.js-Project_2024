@@ -1,5 +1,6 @@
 const express = require('express');
-const {renderApplyMain, renderApplyPost, renderApplyPut, postApplication, deleteApp, updateApp} = require('../controllers/apply');
+const {renderApplyMain, renderApplyPost, renderApplyPut, 
+        postApplication, deleteApp, updateApp} = require('../controllers/apply');
 
 const router = express.Router();
 
@@ -12,13 +13,13 @@ router.get('/post/:deptId', renderApplyPost);
 // GET /apply/put/:id
 router.get('/put/:id', renderApplyPut);
 
-// POST /apply/:deptId
+// POST /apply/post/:deptId
 router.post('/post/:deptId', postApplication);
 
-// DELETE /manage/delete/:id
+// DELETE /apply/delete/:id
 router.delete('/delete/:id', deleteApp);
 
-// PUT /manage/put/:id
+// PUT /apply/put/:id
 router.put('/put/:id', updateApp);
 
 module.exports = router;

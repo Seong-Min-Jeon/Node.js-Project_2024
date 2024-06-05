@@ -23,7 +23,9 @@ exports.renderApplyMain = async (req, res) => {
 
 // 사용자 입사 지원 페이지
 exports.renderApplyPost = (req, res) => {  
-  if(isLoggedIn(req)) {
+  if(isLoggedInStaff(req, res)) {
+    res.send("<script> alert('잘못된 접근입니다.'); window.location.replace('/'); </script>");
+  } else if(isLoggedIn(req)) {
     res.render('applyPost', {deptId : req.params.deptId});
   } else {
     res.send("<script> alert('잘못된 접근입니다.'); window.location.replace('/'); </script>");
@@ -32,7 +34,9 @@ exports.renderApplyPost = (req, res) => {
 
 // 사용자의 입사 지원서 수정 페이지
 exports.renderApplyPut = async (req, res) => {  
-  if(isLoggedIn(req)) {
+  if(isLoggedInStaff(req, res)) {
+    res.send("<script> alert('잘못된 접근입니다.'); window.location.replace('/'); </script>");
+  } else if(isLoggedIn(req)) {
     sql = 'SELECT * ';
     sql += 'From applications ';
     sql += `WHERE id = ${req.params.id}`;
@@ -45,7 +49,9 @@ exports.renderApplyPut = async (req, res) => {
 
 // 지원서 DB에 추가
 exports.postApplication = async (req, res, next) => {
-  if(isLoggedIn(req, res)) {
+  if(isLoggedInStaff(req, res)) {
+    res.send("<script> alert('잘못된 접근입니다.'); window.location.replace('/'); </script>");
+  } else if(isLoggedIn(req, res)) {
     try {
       sql = 'INSERT INTO applications (uid, deptId, name, engName, phoneNumber, phoneNumber2, address, email, ';
       sql += 'licenseName1, licenseGet1, licenseAgency1, licenseName2, licenseGet2, licenseAgency2, ';
@@ -80,7 +86,9 @@ exports.postApplication = async (req, res, next) => {
 
 // 지원서 DB에서 삭제
 exports.deleteApp = async (req, res, next) => {
-  if(isLoggedIn(req, res)) {
+  if(isLoggedInStaff(req, res)) {
+    res.send("<script> alert('잘못된 접근입니다.'); window.location.replace('/'); </script>");
+  } else if(isLoggedIn(req, res)) {
     try {    
       res.send(await sequelize.query(`DELETE FROM applications WHERE id = ${req.params.id}`));
     } catch (error) {
@@ -94,7 +102,9 @@ exports.deleteApp = async (req, res, next) => {
 
 // 지원서 DB에서 수정
 exports.updateApp = async (req, res, next) => {
-  if(isLoggedIn(req, res)) {
+  if(isLoggedInStaff(req, res)) {
+    res.send("<script> alert('잘못된 접근입니다.'); window.location.replace('/'); </script>");
+  } else if(isLoggedIn(req, res)) {
     try {    
       sql = 'UPDATE applications ';
       sql += `SET name='${req.body.name}', engName='${req.body.engName}', phoneNumber='${req.body.phoneNumber}', phoneNumber2='${req.body.phoneNumber2}', `;

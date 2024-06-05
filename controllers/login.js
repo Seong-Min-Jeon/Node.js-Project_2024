@@ -11,5 +11,11 @@ exports.renderLogin = (req, res) => {
 }
 
 exports.renderJoin = (req, res) => {
-  res.render('join'); // 회원가입 페이지로 이동
+  if(isLoggedInStaff(req, res)) {
+    res.redirect('/manage'); // 관리 페이지로 이동
+  } else if(isLoggedIn(req)) {
+    res.redirect('/apply'); // 지원 페이지로 이동
+  } else {
+    res.render('join'); // 회원가입 페이지로 이동
+  }  
 };
